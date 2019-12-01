@@ -116,6 +116,9 @@ class HttpKernel implements BridgeInterface
         $method = $psrRequest->getMethod();
         $query = $psrRequest->getQueryParams();
 
+        // Prevent session leaking
+        $_SESSION = [];
+
         // cookies
         $_COOKIE = [];
 
